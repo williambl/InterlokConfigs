@@ -1,5 +1,5 @@
 <adapter>
-  <unique-id>TFL</unique-id>
+  <unique-id>MyInterlokInstance</unique-id>
   <start-up-event-imp>com.adaptris.core.event.StandardAdapterStartUpEvent</start-up-event-imp>
   <heartbeat-event-imp>com.adaptris.core.HeartbeatEvent</heartbeat-event-imp>
   <log-handler class="null-log-handler">
@@ -123,9 +123,9 @@
               <log-message-service>
                 <unique-id>jog-JSON-response</unique-id>
                 <continue-on-fail>true</continue-on-fail>
+                <log-level>DEBUG</log-level>
                 <log-prefix>LogJSONResponse::</log-prefix>
                 <include-payload>true</include-payload>
-                <log-level>DEBUG</log-level>
               </log-message-service>
               <advanced-message-splitter-service>
                 <unique-id>spit-JSON-array</unique-id>
@@ -153,12 +153,6 @@
                         </target>
                       </json-path-execution>
                     </json-path-service>
-                    <reformat-date-service>
-                      <unique-id>format-dates</unique-id>
-                      <metadata-key-regexp>.*Date</metadata-key-regexp>
-                      <source-date-format>yyyy-MM-dd</source-date-format>
-                      <destination-date-format>yyyyMMdd</destination-date-format>
-                    </reformat-date-service>
                     <add-formatted-metadata-service>
                       <unique-id>create-filename-JSON</unique-id>
                       <format-string>Status-%1$s-%2$s-from-%3$s-to-%4$s.json</format-string>
@@ -171,8 +165,8 @@
                     </add-formatted-metadata-service>
                     <log-message-service>
                       <unique-id>log-JSON-split-response</unique-id>
-                      <log-prefix>LogSplitJSONResponse::</log-prefix>
                       <log-level>DEBUG</log-level>
+                      <log-prefix>LogSplitJSONResponse::</log-prefix>
                     </log-message-service>
                     <standalone-producer>
                       <unique-id>produce-JSON-version-to-FS</unique-id>
@@ -202,8 +196,8 @@
                     </json-xml-transform-service>
                     <log-message-service>
                       <unique-id>log-Split-XML-response</unique-id>
-                      <log-prefix>LogSplitXMLResponse::</log-prefix>
                       <log-level>DEBUG</log-level>
+                      <log-prefix>LogSplitXMLResponse::</log-prefix>
                     </log-message-service>
                     <add-formatted-metadata-service>
                       <unique-id>create-filename-XML</unique-id>
