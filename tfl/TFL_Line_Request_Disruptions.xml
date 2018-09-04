@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <request>
-  <appID>ffcc4ebc</appID>
-  <appKey>5991fb4ac3a8cfe04ea9b22a40a8db6c</appKey>
-  <modes>tube,overground,dlr,tflrail</modes>
+    <appID>ffcc4ebc</appID>
+    <appKey>5991fb4ac3a8cfe04ea9b22a40a8db6c</appKey>
+    <modes>tube,overground,dlr,tflrail,national-rail</modes>
 </request>
