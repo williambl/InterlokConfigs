@@ -62,14 +62,14 @@
                 </xpath-query>
                 <xpath-query class="configured-xpath-query">
                   <allow-empty-results>false</allow-empty-results>
-                  <metadata-key>ids</metadata-key>
-                  <xpath-query>/request/ids</xpath-query>
+                  <metadata-key>modes</metadata-key>
+                  <xpath-query>/request/modes</xpath-query>
                 </xpath-query>
               </xpath-metadata-service>
               <add-formatted-metadata-service>
                 <unique-id>create-base-URL-formatted</unique-id>
-                <format-string>https://api.tfl.gov.uk/Line/%1$s/Status/</format-string>
-                <argument-metadata-key>ids</argument-metadata-key>
+                <format-string>https://api.tfl.gov.uk/line/mode/%1$s/status/</format-string>
+                <argument-metadata-key>modes</argument-metadata-key>
                 <metadata-key>base_url</metadata-key>
                 <element-formatter class="element-value-formatter"/>
               </add-formatted-metadata-service>

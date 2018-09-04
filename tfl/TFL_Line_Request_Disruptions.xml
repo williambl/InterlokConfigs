@@ -2,5 +2,5 @@
 <request>
   <appID>ffcc4ebc</appID>
   <appKey>5991fb4ac3a8cfe04ea9b22a40a8db6c</appKey>
-  <ids>bakerloo, central, circle, district, jubilee, northern, victoria, x26</ids>
+  <modes>tube,overground,dlr,tflrail</modes>
 </request>
