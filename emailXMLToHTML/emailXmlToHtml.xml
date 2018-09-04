@@ -5,33 +5,7 @@
   <shared-components>
     <connections/>
     <services/>
-    </shared-components>
-    <message-error-handler class="standard-processing-exception-handler">
-        <unique-id>gigantic-albattani</unique-id>
-        <processing-exception-service class="service-list">
-          <unique-id>condescending-heisenberg</unique-id>
-          <services>
-            <standalone-producer>
-              <unique-id>compassionate-thompson</unique-id>
-              <connection class="null-connection">
-                <unique-id>serene-mayer</unique-id>
-              </connection>
-              <producer class="fs-producer">
-                <encoder class="mime-encoder"/>
-                <unique-id>desperate-curie</unique-id>
-                <destination class="configured-produce-destination">
-                  <destination>messages/bad</destination>
-                </destination>
-                <fs-worker class="fs-nio-worker"/>
-                <filename-creator class="formatted-filename-creator">
-                  <filename-format>%1$s</filename-format>
-                </filename-creator>
-              </producer>
-            </standalone-producer>
-          </services>
-        </processing-exception-service>
-      </message-error-handler>
-
+  </shared-components>
   <event-handler class="default-event-handler">
     <unique-id>DefaultEventHandler</unique-id>
     <connection class="null-connection">
@@ -45,6 +19,31 @@
     <unit>MINUTES</unit>
     <interval>60</interval>
   </heartbeat-event-interval>
+  <message-error-handler class="standard-processing-exception-handler">
+    <unique-id>gigantic-albattani</unique-id>
+    <processing-exception-service class="service-list">
+      <unique-id>condescending-heisenberg</unique-id>
+      <services>
+        <standalone-producer>
+          <unique-id>compassionate-thompson</unique-id>
+          <connection class="null-connection">
+            <unique-id>serene-mayer</unique-id>
+          </connection>
+          <producer class="fs-producer">
+            <encoder class="mime-encoder"/>
+            <unique-id>desperate-curie</unique-id>
+            <destination class="configured-produce-destination">
+              <destination>messages/bad</destination>
+            </destination>
+            <fs-worker class="fs-nio-worker"/>
+            <filename-creator class="formatted-filename-creator">
+              <filename-format>%1$s</filename-format>
+            </filename-creator>
+          </producer>
+        </standalone-producer>
+      </services>
+    </processing-exception-service>
+  </message-error-handler>
   <failed-message-retrier class="no-retries">
     <unique-id>clever-montalcini</unique-id>
   </failed-message-retrier>
@@ -77,6 +76,12 @@
           <service-collection class="service-list">
             <unique-id>awesome-hypatia</unique-id>
             <services>
+              <xml-validation-service>
+                <unique-id>distracted-wing</unique-id>
+                <validators>
+                  <xml-basic-validator/>
+                </validators>
+              </xml-validation-service>
               <xpath-metadata-service>
                 <unique-id>jovial-kalam</unique-id>
                 <xpath-query class="configured-xpath-query">
