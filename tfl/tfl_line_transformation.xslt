@@ -22,7 +22,7 @@
                         <xsl:when test="not(disruptions)"><span class="bg-success">No Disruptions</span></xsl:when>
                         <xsl:otherwise>
                             <xsl:for-each select="disruption">
-                                <span class="bg-error">Disruption: <xsl:value-of select="summary"></span>
+                                <span class="bg-error">Disruption: <xsl:value-of select="summary" /></span>
                             </xsl:for-each>
                         </xsl:otherwise>
                     </xsl:choose>
