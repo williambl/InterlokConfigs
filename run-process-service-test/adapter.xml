@@ -1,0 +1,87 @@
+<adapter>
+  <unique-id>MyInterlokInstance</unique-id>
+  <start-up-event-imp>com.adaptris.core.event.StandardAdapterStartUpEvent</start-up-event-imp>
+  <heartbeat-event-imp>com.adaptris.core.HeartbeatEvent</heartbeat-event-imp>
+  <log-handler class="null-log-handler">
+    <unique-id>nauseous-golick</unique-id>
+  </log-handler>
+  <shared-components>
+    <connections/>
+    <services/>
+  </shared-components>
+  <event-handler class="default-event-handler">
+    <unique-id>DefaultEventHandler</unique-id>
+    <connection class="null-connection">
+      <unique-id>affectionate-turing</unique-id>
+    </connection>
+    <producer class="null-message-producer">
+      <unique-id>cranky-shirley</unique-id>
+    </producer>
+  </event-handler>
+  <message-error-handler class="null-processing-exception-handler">
+    <unique-id>affectionate-torvalds</unique-id>
+  </message-error-handler>
+  <failed-message-retrier class="no-retries">
+    <unique-id>high-torvalds</unique-id>
+  </failed-message-retrier>
+  <channel-list>
+    <channel>
+      <consume-connection class="null-connection">
+        <unique-id>sick-brattain</unique-id>
+      </consume-connection>
+      <produce-connection class="null-connection">
+        <unique-id>boring-shaw</unique-id>
+      </produce-connection>
+      <workflow-list>
+        <standard-workflow>
+          <consumer class="fs-consumer">
+            <unique-id>pedantic-panini</unique-id>
+            <destination class="configured-consume-destination">
+              <destination>messages/adapter-in</destination>
+            </destination>
+            <poller class="fixed-interval-poller">
+              <poll-interval>
+                <unit>SECONDS</unit>
+                <interval>15</interval>
+              </poll-interval>
+            </poller>
+            <file-sorter class="fs-sort-none"/>
+            <wip-suffix>.wip</wip-suffix>
+          </consumer>
+          <service-collection class="service-list">
+            <unique-id>grave-mirzakhani</unique-id>
+            <services>
+              <run-process-service>
+                <unique-id>nauseous-carson</unique-id>
+                <command>cp testfile dev/Interlok/bin/Interlok/messages/adapter-out</command>
+                <directory>/home/william/</directory>
+              </run-process-service>
+            </services>
+          </service-collection>
+          <producer class="null-message-producer">
+            <unique-id>sleepy-fermat</unique-id>
+          </producer>
+          <produce-exception-handler class="null-produce-exception-handler"/>
+          <unique-id>run-process-test</unique-id>
+          <message-metrics-interceptor>
+            <unique-id>run-process-test-MessageMetrics</unique-id>
+            <timeslice-duration>
+              <unit>MINUTES</unit>
+              <interval>5</interval>
+            </timeslice-duration>
+            <timeslice-history-count>12</timeslice-history-count>
+          </message-metrics-interceptor>
+          <in-flight-workflow-interceptor>
+            <unique-id>run-process-test-InFlight</unique-id>
+          </in-flight-workflow-interceptor>
+        </standard-workflow>
+      </workflow-list>
+      <unique-id>gigantic-pasteur</unique-id>
+      <auto-start>true</auto-start>
+    </channel>
+  </channel-list>
+  <message-error-digester class="standard-message-error-digester">
+    <unique-id>ErrorDigest</unique-id>
+    <digest-max-size>100</digest-max-size>
+  </message-error-digester>
+</adapter>
