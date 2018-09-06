@@ -122,7 +122,7 @@
               </find-and-replace-service>
               <xml-transform-service>
                 <unique-id>Create HTML file from XML</unique-id>
-                <url>/home/william/dev/Interlok/InterlokConfigs/tfl/tfl_line_transformation.xslt</url>
+                <url>/home/william/dev/Interlok/interlok-configs/tfl/disruption_page/tfl_line_transformation.xslt</url>
                 <metadata-key>transformurl</metadata-key>
                 <output-message-encoding>UTF-8</output-message-encoding>
                 <xml-transformer-factory class="xslt-transformer-factory">
