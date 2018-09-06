@@ -10,27 +10,28 @@
                 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css" />
                 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css" />
                 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css" />
-                <link rel="stylesheet" href="file:///home/william/dev/Interlok/InterlokConfigs/tfl/tfl-disruption.css" />
+                <link rel="stylesheet" href="file:///home/william/dev/Interlok/interlok-configs/tfl/disruption_page/tfl-disruption.css" />
             </head>
 
             <body>
-                <h1>TFL Line Status</h1>
+                <h1 class="title">TFL Line Status</h1>
+                <table class="disruption-table">
                 <xsl:for-each select="array-item">
-                    <div>
-                        <span class="line-name"><xsl:value-of select="name" /></span>
+                    <tr>
+                        <td class="line-name"><xsl:value-of select="name" /></td>
 
                         <xsl:choose>
-                            <xsl:when test="not(disruptions)"><span class="bg-success no-disruptions s-rounded">No Disruptions</span></xsl:when>
+                            <xsl:when test="not(disruptions)"><td class="bg-success no-disruptions s-rounded">No Disruptions</td></xsl:when>
                             <xsl:otherwise>
                                 <xsl:for-each select="disruption">
-                                    <span class="bg-error disruption s-rounded">Disruption: <xsl:value-of select="summary" /></span>
+                                    <td class="bg-error disruption s-rounded">Disruption: <xsl:value-of select="summary" /></td>
                                 </xsl:for-each>
                             </xsl:otherwise>
                         </xsl:choose>
 
-                    </div>
-                    <hr />
+                    </tr>
                 </xsl:for-each>
+                </table>
             </body>
         </html>
     </xsl:template>
