@@ -1,0 +1,181 @@
+<adapter>
+  <unique-id>MyInterlokInstance</unique-id>
+  <start-up-event-imp>com.adaptris.core.event.StandardAdapterStartUpEvent</start-up-event-imp>
+  <heartbeat-event-imp>com.adaptris.core.HeartbeatEvent</heartbeat-event-imp>
+  <log-handler class="null-log-handler">
+    <unique-id>nauseous-golick</unique-id>
+  </log-handler>
+  <shared-components>
+    <connections/>
+    <services/>
+  </shared-components>
+  <event-handler class="default-event-handler">
+    <unique-id>DefaultEventHandler</unique-id>
+    <connection class="null-connection">
+      <unique-id>affectionate-turing</unique-id>
+    </connection>
+    <producer class="null-message-producer">
+      <unique-id>cranky-shirley</unique-id>
+    </producer>
+  </event-handler>
+  <message-error-handler class="null-processing-exception-handler">
+    <unique-id>affectionate-torvalds</unique-id>
+  </message-error-handler>
+  <failed-message-retrier class="no-retries">
+    <unique-id>high-torvalds</unique-id>
+  </failed-message-retrier>
+  <channel-list>
+    <channel>
+      <consume-connection class="null-connection">
+        <unique-id>sick-brattain</unique-id>
+      </consume-connection>
+      <produce-connection class="null-connection">
+        <unique-id>boring-shaw</unique-id>
+      </produce-connection>
+      <workflow-list>
+        <standard-workflow>
+          <consumer class="fs-consumer">
+            <unique-id>desperate-sinoussi</unique-id>
+            <destination class="configured-consume-destination">
+              <destination>messages/adapter-in</destination>
+            </destination>
+            <poller class="fixed-interval-poller"/>
+            <create-dirs>true</create-dirs>
+            <file-sorter class="fs-sort-none"/>
+            <wip-suffix>.wip</wip-suffix>
+          </consumer>
+          <service-collection class="service-list">
+            <unique-id>ServiceList-1364776</unique-id>
+            <services>
+              <json-path-service>
+                <unique-id>extract-request-details</unique-id>
+                <source class="string-payload-data-input-parameter"/>
+                <json-path-execution>
+                  <source class="constant-data-input-parameter">
+                    <value>$[&apos;station-name&apos;]</value>
+                  </source>
+                  <target class="metadata-data-output-parameter">
+                    <metadata-key>station_name</metadata-key>
+                  </target>
+                </json-path-execution>
+              </json-path-service>
+              <add-formatted-metadata-service>
+                <unique-id>create-tfl-URL</unique-id>
+                <format-string>https://api.tfl.gov.uk/stoppoint/search/%1$s?maxResults=1</format-string>
+                <argument-metadata-key>station_name</argument-metadata-key>
+                <metadata-key>tfl_url</metadata-key>
+                <element-formatter class="element-value-formatter"/>
+              </add-formatted-metadata-service>
+              <standalone-requestor>
+                <unique-id>TFL-station-location-requestor</unique-id>
+                <continue-on-fail>true</continue-on-fail>
+                <connection class="null-connection">
+                  <unique-id>elastic-payne</unique-id>
+                </connection>
+                <producer class="standard-http-producer">
+                  <unique-id>affectionate-khorana</unique-id>
+                  <destination class="metadata-destination">
+                    <key>tfl_url</key>
+                  </destination>
+                  <method-provider class="http-configured-request-method">
+                    <method>GET</method>
+                  </method-provider>
+                  <content-type-provider class="http-configured-content-type-provider">
+                    <mime-type>application/json</mime-type>
+                  </content-type-provider>
+                  <response-header-handler class="http-discard-response-headers"/>
+                  <request-header-provider class="http-no-request-headers"/>
+                  <authenticator class="http-no-authentication"/>
+                </producer>
+              </standalone-requestor>
+              <log-message-service>
+                <unique-id>jog-JSON-response</unique-id>
+                <continue-on-fail>true</continue-on-fail>
+                <log-level>DEBUG</log-level>
+                <log-prefix>LogJSONResponse::</log-prefix>
+                <include-payload>true</include-payload>
+              </log-message-service>
+              <json-path-service>
+                <unique-id>extract-lat-long-from-json</unique-id>
+                <source class="string-payload-data-input-parameter"/>
+                <json-path-execution>
+                  <source class="constant-data-input-parameter">
+                    <value>$[&apos;matches&apos;][0][&apos;lat&apos;]</value>
+                  </source>
+                  <target class="metadata-data-output-parameter">
+                    <metadata-key>lat</metadata-key>
+                  </target>
+                </json-path-execution>
+                <json-path-execution>
+                  <source class="constant-data-input-parameter">
+                    <value>$[&apos;matches&apos;][0][&apos;lon&apos;]</value>
+                  </source>
+                  <target class="metadata-data-output-parameter">
+                    <metadata-key>lon</metadata-key>
+                  </target>
+                </json-path-execution>
+              </json-path-service>
+              <add-formatted-metadata-service>
+                <unique-id>create-wttrin-url</unique-id>
+                <format-string>https://wttr.in/%1$s,%2$s?Q0M</format-string>
+                <argument-metadata-key>lat</argument-metadata-key>
+                <argument-metadata-key>lon</argument-metadata-key>
+                <metadata-key>wttrin-url</metadata-key>
+              </add-formatted-metadata-service>
+              <standalone-requestor>
+                <unique-id>get-weather-from-wttrin</unique-id>
+                <connection class="null-connection">
+                  <unique-id>tiny-volhard</unique-id>
+                </connection>
+                <producer class="standard-http-producer">
+                  <unique-id>high-montalcini</unique-id>
+                  <destination class="metadata-destination">
+                    <key>wttrin-url</key>
+                  </destination>
+                  <method-provider class="http-configured-request-method">
+                    <method>GET</method>
+                  </method-provider>
+                  <content-type-provider class="http-configured-content-type-provider">
+                    <mime-type>text/html</mime-type>
+                  </content-type-provider>
+                  <response-header-handler class="http-discard-response-headers"/>
+                  <request-header-provider class="http-no-request-headers"/>
+                  <authenticator class="http-no-authentication"/>
+                </producer>
+              </standalone-requestor>
+            </services>
+          </service-collection>
+          <producer class="fs-producer">
+            <unique-id>jovial-bardeen</unique-id>
+            <destination class="configured-produce-destination">
+              <destination>messages/adapter-out</destination>
+            </destination>
+            <fs-worker class="fs-nio-worker"/>
+            <filename-creator class="formatted-filename-creator">
+              <filename-format>%1$s</filename-format>
+            </filename-creator>
+          </producer>
+          <produce-exception-handler class="null-produce-exception-handler"/>
+          <unique-id>TFL-Station-Weather</unique-id>
+          <message-metrics-interceptor>
+            <unique-id>StandardWorkflow-237292</unique-id>
+            <timeslice-duration>
+              <unit>MINUTES</unit>
+              <interval>5</interval>
+            </timeslice-duration>
+            <timeslice-history-count>12</timeslice-history-count>
+          </message-metrics-interceptor>
+          <in-flight-workflow-interceptor>
+            <unique-id>TFL-line-requests</unique-id>
+          </in-flight-workflow-interceptor>
+        </standard-workflow>
+      </workflow-list>
+      <unique-id>WebClient</unique-id>
+      <auto-start>true</auto-start>
+    </channel>
+  </channel-list>
+  <message-error-digester class="standard-message-error-digester">
+    <unique-id>ErrorDigest</unique-id>
+    <digest-max-size>100</digest-max-size>
+  </message-error-digester>
+</adapter>
