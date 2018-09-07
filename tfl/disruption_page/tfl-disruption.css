@@ -4,13 +4,10 @@
 
 .line-name {
     padding: 1em;
+    text-align: right;
 }
 
-.no-disruptions {
-    padding: 0.5em;
-}
-
-.disruption {
+.disruption-cell {
     padding: 0.5em;
 }
 

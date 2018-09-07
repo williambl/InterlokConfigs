@@ -30,9 +30,9 @@
                         </td>
 
                         <xsl:choose>
-                            <xsl:when test="not(disruptions)"><td class="bg-success no-disruptions s-rounded">No Disruptions</td></xsl:when>
+                            <xsl:when test="not(disruptions)"><td class="bg-success disruption-cell s-rounded">No Disruptions</td></xsl:when>
                             <xsl:otherwise>
-                            <td class="bg-error disruption s-rounded">
+                            <td class="bg-error disruption-cell s-rounded">
                                 <xsl:for-each select="disruption">
                                     <span class="disruption-text">Disruption: <xsl:value-of select="summary" /></span>
                                 </xsl:for-each>
