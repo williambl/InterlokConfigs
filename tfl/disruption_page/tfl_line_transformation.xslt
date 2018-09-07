@@ -21,7 +21,7 @@
                         <td class="line-name">
                             <xsl:value-of select="name" />
                             <xsl:choose>
-                                <xsl:when test="modeName='tube'"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Underground.svg/594px-Underground.svg.png" alt="London Underground" title="Underground" class="mode-icon" /></xsl:when>
+                                <xsl:when test="modeName='tube'"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Underground.svg/594px-Underground.svg.png" alt="Underground" title="Underground" class="mode-icon" /></xsl:when>
                                 <xsl:when test="modeName='overground'"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Overground_roundel.svg/592px-Overground_roundel.svg.png" alt="Overground" title="Overground" class="mode-icon" /></xsl:when>
                                 <xsl:when test="modeName='dlr'"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/DLR_roundel.svg/593px-DLR_roundel.svg.png" alt="DLR" title="DLR" class="mode-icon" /></xsl:when>
                                 <xsl:when test="modeName='tflrail'"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/TFL_Rail_roundel.svg/594px-TFL_Rail_roundel.svg.png" alt="TFL Rail" title="TFL Rail" class="mode-icon" /></xsl:when>
