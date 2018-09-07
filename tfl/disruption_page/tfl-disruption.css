@@ -9,6 +9,8 @@
 
 .disruption-cell {
     padding: 0.5em;
+    width: 50%;
+    text-align: center;
 }
 
 .disruption-table {
