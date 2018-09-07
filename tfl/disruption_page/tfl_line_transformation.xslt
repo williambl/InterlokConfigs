@@ -32,9 +32,11 @@
                         <xsl:choose>
                             <xsl:when test="not(disruptions)"><td class="bg-success no-disruptions s-rounded">No Disruptions</td></xsl:when>
                             <xsl:otherwise>
+                            <td class="bg-error disruption s-rounded">
                                 <xsl:for-each select="disruption">
-                                    <td class="bg-error disruption s-rounded">Disruption: <xsl:value-of select="summary" /></td>
+                                    <span class="disruption-text">Disruption: <xsl:value-of select="summary" /></span>
                                 </xsl:for-each>
+                            </td>
                             </xsl:otherwise>
                         </xsl:choose>
 
